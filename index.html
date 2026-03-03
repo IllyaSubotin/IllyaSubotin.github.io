@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <title>Subotin Illya | Portfolio</title>
 
-<!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -28,13 +27,20 @@ h1 {
 
 h2 {
     font-size: 28px;
-    margin-bottom: 10px;
+    margin-top: 60px;
 }
 
-p {
-    line-height: 1.6;
+p, li {
     font-size: 16px;
+    line-height: 1.6;
     color: #c9d1d9;
+}
+
+.role {
+    font-size: 18px;
+    font-weight: 300;
+    margin-bottom: 20px;
+    color: #8b949e;
 }
 
 .lang-switch {
@@ -55,10 +61,6 @@ p {
     background-color: #388bfd;
 }
 
-.project {
-    margin-top: 80px;
-}
-
 video {
     width: 100%;
     border-radius: 16px;
@@ -66,12 +68,22 @@ video {
     box-shadow: 0 10px 30px rgba(0,0,0,0.4);
 }
 
+ul {
+    list-style-type: "- ";
+    list-style-position: inside;
+    padding: 0;
+    margin-top: 20px;
+}
+
+li {
+    margin: 8px 0;
+}
+
 .button {
     display: inline-block;
     padding: 10px 18px;
     margin-top: 20px;
-    margin-right: 10px;
-    background-color: #238636;
+    background-color: #1f6feb;
     color: white;
     text-decoration: none;
     border-radius: 25px;
@@ -81,17 +93,6 @@ video {
 
 .button:hover {
     transform: translateY(-2px);
-}
-
-.button.github {
-    background-color: #1f6feb;
-}
-
-.role {
-    font-size: 18px;
-    font-weight: 300;
-    margin-bottom: 20px;
-    color: #8b949e;
 }
 
 </style>
@@ -108,73 +109,95 @@ video {
 Download Resume
 </a>
 
-<div class="project">
+<!-- DriftGame -->
 
-<h2>DriftGame</h2>
+<h2>Drift Simulator with Multiplayer</h2>
 
 <video controls>
   <source src="DriftGamePromo.mp4" type="video/mp4">
 </video>
 
-<p id="driftDesc">
-Multiplayer drift simulator built with Photon (2–4 players).
-Custom vehicle controller using Wheel Colliders, synchronized multiplayer system,
-UI built with State Machine architecture, dependency injection via Zenject,
-progress saving system and in-game shop with car customization.
-Structured according to SOLID and KISS principles.
-</p>
+<ul id="driftDesc">
+  <li>Real-time multiplayer using Photon (2–4 players)</li>
+  <li>Custom drift mechanics based on Wheel Collider physics</li>
+  <li>Synchronized multiplayer system</li>
+  <li>In-game store with vehicle customization</li>
+  <li>Architecture structured according to SOLID and KISS principles</li>
+</ul>
 
-<a class="button github"
-href="https://github.com/IllyaSubotin/DriftGame">
+<a class="button" href="https://github.com/IllyaSubotin/DriftGame" target="_blank">
 GitHub
 </a>
 
-</div>
+<!-- OsuGame -->
 
-<div class="project">
-
-<h2>OsuGame</h2>
+<h2>Rhythm Game (OSU-like)</h2>
 
 <video controls>
   <source src="OsuGamePromo.mp4" type="video/mp4">
 </video>
 
-<p id="osuDesc">
-Rhythm game featuring custom level editor.
-UI built with State Machine pattern and Zenject.
-Node-based input system, 2D Raycast interaction,
-ability to import songs and backgrounds from PC,
-edit levels and track player statistics with progress saving.
-Built following SOLID principles.
-</p>
+<ul id="osuDesc">
+  <li>Rhythm-based gameplay system with node interaction</li>
+  <li>Support for importing custom songs and backgrounds</li>
+  <li>Custom level editor</li>
+  <li>Player progress and statistics saving system</li>
+  <li>Built following SOLID principles</li>
+</ul>
 
-<a class="button github"
-href="https://github.com/IllyaSubotin/MyOsu">
+<a class="button" href="https://github.com/IllyaSubotin/MyOsu" target="_blank">
 GitHub
 </a>
-
-</div>
 
 <script>
 
 let currentLang = localStorage.getItem("lang") || "en";
 
 function applyLanguage(lang) {
+    const driftList = document.getElementById("driftDesc");
+    const osuList = document.getElementById("osuDesc");
+
     if (lang === "ua") {
         document.getElementById("role").innerText = "Unity Розробник";
         document.getElementById("resumeBtn").innerText = "Завантажити резюме";
-        document.getElementById("driftDesc").innerText =
-        "Мультиплеєрний симулятор дрифту з використанням Photon (2–4 гравці). Реалізовано власну систему керування автомобілем на базі Wheel Collider, синхронізацію гравців, UI на основі State Machine, dependency injection через Zenject, систему збереження прогресу та внутрішній магазин з кастомізацією авто. Архітектура побудована відповідно до принципів SOLID та KISS.";
-        document.getElementById("osuDesc").innerText =
-        "Ритм-гра з вбудованим редактором рівнів. UI реалізований через патерн State Machine та Zenject. Система нодів для ритмічної взаємодії, використання 2D Raycast, можливість імпорту музики та фону з ПК, редагування рівнів та збереження статистики гравця. Проект структурований згідно принципів SOLID.";
+
+        driftList.innerHTML = `
+            <li>Мультиплеєр на Photon (2–4 гравці)</li>
+            <li>Власна система дрифту на основі Wheel Collider</li>
+            <li>Синхронізація гравців у реальному часі</li>
+            <li>Внутрішній магазин з кастомізацією авто</li>
+            <li>Архітектура побудована за принципами SOLID та KISS</li>
+        `;
+
+        osuList.innerHTML = `
+            <li>Ритм-система з нодовою взаємодією</li>
+            <li>Імпорт власних пісень та фону з ПК</li>
+            <li>Повноцінний редактор рівнів</li>
+            <li>Система збереження прогресу та статистики</li>
+            <li>Проект структурований згідно принципів SOLID</li>
+        `;
+
         document.querySelector(".lang-switch").innerText = "EN";
     } else {
         document.getElementById("role").innerText = "Unity Developer";
         document.getElementById("resumeBtn").innerText = "Download Resume";
-        document.getElementById("driftDesc").innerText =
-        "Multiplayer drift simulator built with Photon (2–4 players). Custom vehicle controller using Wheel Colliders, synchronized multiplayer system, UI built with State Machine architecture, dependency injection via Zenject, progress saving system and in-game shop with car customization. Structured according to SOLID and KISS principles.";
-        document.getElementById("osuDesc").innerText =
-        "Rhythm game featuring custom level editor. UI built with State Machine pattern and Zenject. Node-based input system, 2D Raycast interaction, ability to import songs and backgrounds from PC, edit levels and track player statistics with progress saving. Built following SOLID principles.";
+
+        driftList.innerHTML = `
+            <li>Real-time multiplayer using Photon (2–4 players)</li>
+            <li>Custom drift mechanics based on Wheel Collider physics</li>
+            <li>Synchronized multiplayer system</li>
+            <li>In-game store with vehicle customization</li>
+            <li>Architecture structured according to SOLID and KISS principles</li>
+        `;
+
+        osuList.innerHTML = `
+            <li>Rhythm-based gameplay system with node interaction</li>
+            <li>Support for importing custom songs and backgrounds</li>
+            <li>Custom level editor</li>
+            <li>Player progress and statistics saving system</li>
+            <li>Built following SOLID principles</li>
+        `;
+
         document.querySelector(".lang-switch").innerText = "UA";
     }
 
