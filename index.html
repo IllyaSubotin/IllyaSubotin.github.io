@@ -8,91 +8,94 @@
 
 <style>
 
-body {
-    background: linear-gradient(180deg, #0d1117, #111827);
-    color: #e6edf3;
-    font-family: 'Inter', sans-serif;
-    max-width: 900px;
-    margin: auto;
-    padding: 40px 20px;
-    text-align: center;
-    position: relative;
+body{
+background: linear-gradient(180deg,#0d1117,#111827);
+color:#e6edf3;
+font-family:'Inter',sans-serif;
+max-width:1000px;
+margin:auto;
+padding:40px 20px;
+text-align:center;
+position:relative;
 }
 
-h1 {
-    font-size: 42px;
-    font-weight: 700;
-    margin-bottom: 5px;
+h1{
+font-size:42px;
+font-weight:700;
+margin-bottom:5px;
 }
 
-h2 {
-    font-size: 28px;
-    margin-top: 60px;
+.role{
+font-size:18px;
+font-weight:300;
+margin-bottom:20px;
+color:#8b949e;
 }
 
-p, li {
-    font-size: 16px;
-    line-height: 1.6;
-    color: #c9d1d9;
+p{
+line-height:1.6;
+font-size:16px;
+color:#c9d1d9;
 }
 
-.role {
-    font-size: 18px;
-    font-weight: 300;
-    margin-bottom: 20px;
-    color: #8b949e;
+.lang-switch{
+position:absolute;
+top:30px;
+right:20px;
+background:#1f6feb;
+border:none;
+color:white;
+padding:8px 16px;
+border-radius:20px;
+cursor:pointer;
+font-weight:600;
 }
 
-.lang-switch {
-    position: absolute;
-    top: 30px;
-    right: 20px;
-    background-color: #1f6feb;
-    border: none;
-    color: white;
-    padding: 8px 16px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: 0.2s;
+.lang-switch:hover{
+background:#388bfd;
 }
 
-.lang-switch:hover {
-    background-color: #388bfd;
+.button{
+display:inline-block;
+padding:10px 18px;
+margin-top:15px;
+margin-right:10px;
+background:#238636;
+color:white;
+text-decoration:none;
+border-radius:25px;
+font-weight:600;
+transition:0.2s;
 }
 
-video {
-    width: 100%;
-    border-radius: 16px;
-    margin-top: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+.button.github{
+background:#1f6feb;
 }
 
-ul {
-    list-style-type: "- ";
-    list-style-position: inside;
-    padding: 0;
-    margin-top: 20px;
+.button:hover{
+transform:translateY(-2px);
 }
 
-li {
-    margin: 8px 0;
+.projects-grid{
+margin-top:70px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:50px;
 }
 
-.button {
-    display: inline-block;
-    padding: 10px 18px;
-    margin-top: 20px;
-    background-color: #1f6feb;
-    color: white;
-    text-decoration: none;
-    border-radius: 25px;
-    font-weight: 600;
-    transition: 0.2s;
+.project-card h2{
+margin-bottom:10px;
 }
 
-.button:hover {
-    transform: translateY(-2px);
+video{
+width:100%;
+border-radius:16px;
+margin-top:10px;
+box-shadow:0 10px 30px rgba(0,0,0,0.4);
+}
+
+.description{
+margin-top:15px;
 }
 
 </style>
@@ -109,105 +112,119 @@ li {
 Download Resume
 </a>
 
-<!-- DriftGame -->
+<div class="projects-grid">
 
-<h2>Drift Simulator with Multiplayer</h2>
+<!-- Project 1 -->
+<div class="project-card">
+
+<h2>Spiral Jumper</h2>
 
 <video controls>
-  <source src="DriftGamePromo.mp4" type="video/mp4">
+<source src="SpiralJumperPromo.mp4" type="video/mp4">
 </video>
 
-<ul class="project-desc" id="driftDesc">
-  <li>Real-time multiplayer using Photon (2–4 players)</li>
-  <li>Custom drift mechanics based on Wheel Collider physics</li>
-  <li>Synchronized multiplayer system</li>
-  <li>In-game store with vehicle customization</li>
-  <li>Architecture structured according to SOLID and KISS principles</li>
-</ul>
+<p class="description" id="spiralDesc">
+Hyper-casual arcade game inspired by spiral tower mechanics.
+Player jumps through rotating platforms while avoiding obstacles.
+Built with smooth physics movement and optimized gameplay loop.
+</p>
 
-<a class="button" href="https://github.com/IllyaSubotin/DriftGame" target="_blank">
+<a class="button github"
+href="https://github.com/IllyaSubotin/SpiralJumper">
 GitHub
 </a>
 
-<!-- OsuGame -->
+</div>
 
-<h2>Rhythm Game (OSU-like)</h2>
+<!-- Project 2 -->
+<div class="project-card">
+
+<h2>DriftGame</h2>
 
 <video controls>
-  <source src="OsuGamePromo.mp4" type="video/mp4">
+<source src="DriftGamePromo.mp4" type="video/mp4">
 </video>
 
-<ul class="project-desc" id="osuDesc">
-  <li>Rhythm-based gameplay system with node interaction</li>
-  <li>Support for importing custom songs and backgrounds</li>
-  <li>Custom level editor</li>
-  <li>Player progress and statistics saving system</li>
-  <li>Built following SOLID principles</li>
-</ul>
+<p class="description" id="driftDesc">
+Multiplayer drift simulator built with Photon (2–4 players).
+Custom vehicle controller using Wheel Colliders,
+synchronized multiplayer system, UI with State Machine architecture,
+dependency injection via Zenject and car customization system.
+</p>
 
-<a class="button" href="https://github.com/IllyaSubotin/MyOsu" target="_blank">
+<a class="button github"
+href="https://github.com/IllyaSubotin/DriftGame">
 GitHub
 </a>
+
+</div>
+
+<!-- Project 3 -->
+<div class="project-card">
+
+<h2>Prototype Arena</h2>
+
+<video controls>
+<source src="" type="video/mp4">
+</video>
+
+</div>
+
+<!-- Project 4 -->
+<div class="project-card">
+
+<h2>Physics Sandbox</h2>
+
+<video controls>
+<source src="" type="video/mp4">
+</video>
+
+</div>
+
+</div>
 
 <script>
 
 let currentLang = localStorage.getItem("lang") || "en";
 
-function applyLanguage(lang) {
-    const driftList = document.getElementById("driftDesc");
-    const osuList = document.getElementById("osuDesc");
+function applyLanguage(lang){
 
-    if (lang === "ua") {
-        document.getElementById("role").innerText = "Unity Розробник";
-        document.getElementById("resumeBtn").innerText = "Завантажити резюме";
+if(lang==="ua"){
 
-        driftList.innerHTML = `
-            <li>Мультиплеєр на Photon (2–4 гравці)</li>
-            <li>Власна система дрифту на основі Wheel Collider</li>
-            <li>Синхронізація гравців у реальному часі</li>
-            <li>Внутрішній магазин з кастомізацією авто</li>
-            <li>Архітектура побудована за принципами SOLID та KISS</li>
-        `;
+document.getElementById("role").innerText="Unity Розробник";
+document.getElementById("resumeBtn").innerText="Завантажити резюме";
 
-        osuList.innerHTML = `
-            <li>Ритм-система з нодовою взаємодією</li>
-            <li>Імпорт власних пісень та фону з ПК</li>
-            <li>Повноцінний редактор рівнів</li>
-            <li>Система збереження прогресу та статистики</li>
-            <li>Проект структурований згідно принципів SOLID</li>
-        `;
+document.getElementById("spiralDesc").innerText=
+"Аркадна гіперказуальна гра, натхненна механікою спіральної вежі. Гравець стрибає через обертові платформи, уникаючи перешкод. Реалізовано плавну фізику руху та оптимізований ігровий цикл.";
 
-        document.querySelector(".lang-switch").innerText = "EN";
-    } else {
-        document.getElementById("role").innerText = "Unity Developer";
-        document.getElementById("resumeBtn").innerText = "Download Resume";
+document.getElementById("driftDesc").innerText=
+"Мультиплеєрний симулятор дрифту з використанням Photon (2–4 гравці). Власна система керування автомобілем на базі Wheel Collider, синхронізація гравців, UI на основі State Machine, dependency injection через Zenject та система кастомізації автомобіля.";
 
-        driftList.innerHTML = `
-            <li>Real-time multiplayer using Photon (2–4 players)</li>
-            <li>Custom drift mechanics based on Wheel Collider physics</li>
-            <li>Synchronized multiplayer system</li>
-            <li>In-game store with vehicle customization</li>
-            <li>Architecture structured according to SOLID and KISS principles</li>
-        `;
+document.querySelector(".lang-switch").innerText="EN";
 
-        osuList.innerHTML = `
-            <li>Rhythm-based gameplay system with node interaction</li>
-            <li>Support for importing custom songs and backgrounds</li>
-            <li>Custom level editor</li>
-            <li>Player progress and statistics saving system</li>
-            <li>Built following SOLID principles</li>
-        `;
+}else{
 
-        document.querySelector(".lang-switch").innerText = "UA";
-    }
+document.getElementById("role").innerText="Unity Developer";
+document.getElementById("resumeBtn").innerText="Download Resume";
 
-    localStorage.setItem("lang", lang);
-    document.documentElement.lang = lang;
+document.getElementById("spiralDesc").innerText=
+"Hyper-casual arcade game inspired by spiral tower mechanics. Player jumps through rotating platforms while avoiding obstacles. Built with smooth physics movement and optimized gameplay loop.";
+
+document.getElementById("driftDesc").innerText=
+"Multiplayer drift simulator built with Photon (2–4 players). Custom vehicle controller using Wheel Colliders, synchronized multiplayer system, UI with State Machine architecture, dependency injection via Zenject and car customization system.";
+
+document.querySelector(".lang-switch").innerText="UA";
+
 }
 
-function toggleLanguage() {
-    currentLang = currentLang === "en" ? "ua" : "en";
-    applyLanguage(currentLang);
+localStorage.setItem("lang",lang);
+document.documentElement.lang=lang;
+
+}
+
+function toggleLanguage(){
+currentLang=currentLang==="en"?"ua":"en";
+applyLanguage(currentLang);
 }
 
 applyLanguage(currentLang);
