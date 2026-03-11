@@ -111,6 +111,25 @@ grid-template-columns:1fr;
 </style>
 </head>
 
+<script>
+
+document.querySelectorAll("video").forEach(video => {
+
+video.muted = true;   // потрібно для автопрогравання в браузерах
+
+video.addEventListener("mouseenter", () => {
+video.play();
+});
+
+video.addEventListener("mouseleave", () => {
+video.pause();
+video.currentTime = 0;
+});
+
+});
+
+</script>
+
 <body>
 
 <!-- HERO -->
@@ -132,7 +151,7 @@ Download Resume
 
 <h3>Shooting Game</h3>
 
-<video class="video-pc" controls>
+<video class="video-pc" muted loop>
 <source src="shooting.mp4" type="video/mp4">
 </video>
 
@@ -149,7 +168,7 @@ and player movement controller.
 
 <h3>Drift Game</h3>
 
-<video class="video-pc" controls>
+<video class="video-pc" muted loop>
 <source src="drift.mp4" type="video/mp4">
 </video>
 
@@ -173,7 +192,7 @@ car tuning and multiplayer synchronization.
 
 <h3>Spiral Jumper</h3>
 
-<video class="video-mobile" controls>
+<video class="video-mobile" muted loop>
 <source src="spiral.mp4" type="video/mp4">
 </video>
 
@@ -189,7 +208,7 @@ Player jumps through rotating platforms while avoiding obstacles.
 
 <h3>Math Runner</h3>
 
-<video class="video-mobile" controls>
+<video class="video-mobile" muted loop>
 <source src="mathrunner.mp4" type="video/mp4">
 </video>
 
