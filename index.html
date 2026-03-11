@@ -3,220 +3,191 @@
 <head>
 <meta charset="UTF-8">
 <title>Illya Subotin | Unity Developer</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
 <style>
-
 body{
-background: linear-gradient(180deg,#0d1117,#111827);
-color:#e6edf3;
-font-family:'Inter',sans-serif;
-max-width:1100px;
-margin:auto;
-padding:40px 20px;
-text-align:center;
+    background: linear-gradient(180deg,#0d1117,#111827);
+    color:#e6edf3;
+    font-family:'Inter',sans-serif;
+    max-width:1100px;
+    margin:auto;
+    padding:40px 20px;
+    text-align:center;
+    position:relative;
 }
-
-h1{
-font-size:46px;
-margin-bottom:5px;
-}
-
-h2{
-margin-top:70px;
-margin-bottom:30px;
-font-size:28px;
-}
-
-.role{
-color:#8b949e;
-margin-bottom:25px;
-}
-
+h1{ font-size:46px; margin-bottom:5px; }
+h2{ margin-top:70px; margin-bottom:30px; font-size:28px; }
+h3{ margin-bottom:10px; }
+.role{ color:#8b949e; margin-bottom:25px; }
 .button{
-display:inline-block;
-padding:12px 22px;
-background:#238636;
-color:white;
-text-decoration:none;
-border-radius:25px;
-font-weight:600;
-margin-top:10px;
-transition:0.2s;
+    display:inline-block;
+    padding:12px 22px;
+    background:#238636;
+    color:white;
+    text-decoration:none;
+    border-radius:25px;
+    font-weight:600;
+    margin-top:10px;
+    transition:0.2s;
 }
-
-.button:hover{
-transform:translateY(-3px);
-}
-
-.projects{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:40px;
-}
-
+.button.github{ background:#1f6feb; }
+.button:hover{ transform:translateY(-3px); }
+.projects{ display:grid; grid-template-columns:1fr 1fr; gap:40px; }
 .project-card{
-background:#161b22;
-padding:20px;
-border-radius:16px;
-transition:0.3s;
+    background:#161b22; padding:20px; border-radius:16px; transition:0.3s;
 }
-
 .project-card:hover{
-transform:translateY(-8px);
-box-shadow:0 15px 40px rgba(0,0,0,0.4);
+    transform:translateY(-8px);
+    box-shadow:0 15px 40px rgba(0,0,0,0.4);
 }
+.video-pc{ width:100%; aspect-ratio:16/9; object-fit:cover; border-radius:12px; margin-bottom:15px; }
+.video-mobile{ width:100%; max-height:500px; object-fit:contain; border-radius:12px; margin-bottom:15px; }
+p{ color:#c9d1d9; font-size:15px; line-height:1.5; }
+.contacts{ margin-top:90px; padding-top:30px; border-top:1px solid #30363d; }
+.contact-item{ margin:10px 0; }
 
-.video-pc{
-width:100%;
-aspect-ratio:16/9;
-object-fit:cover;
-border-radius:12px;
-margin-bottom:15px;
+/* Language switch button */
+.lang-switch{
+    position:absolute;
+    top:30px;
+    right:20px;
+    background:#1f6feb;
+    border:none;
+    color:white;
+    padding:8px 16px;
+    border-radius:20px;
+    cursor:pointer;
+    font-weight:600;
+    transition:0.2s;
 }
-
-.video-mobile{
-width:100%;
-max-height:500px;
-object-fit:contain;
-border-radius:12px;
-margin-bottom:15px;
-}
-
-p{
-color:#c9d1d9;
-font-size:15px;
-line-height:1.5;
-}
-
-.contacts{
-margin-top:90px;
-padding-top:30px;
-border-top:1px solid #30363d;
-}
-
-.contact-item{
-margin:10px 0;
-}
+.lang-switch:hover{ background:#388bfd; }
 
 @media(max-width:800px){
-
-.projects{
-grid-template-columns:1fr;
+    .projects{ grid-template-columns:1fr; }
 }
-
-}
-
 </style>
 </head>
-
 <body>
 
-<!-- HERO -->
+<!-- Language switch -->
+<button class="lang-switch" onclick="toggleLanguage()">UA</button>
 
+<!-- Hero -->
 <h1>Illya Subotin</h1>
-<p class="role">Unity Developer</p>
+<p class="role" id="role">Unity Developer</p>
 
-<a class="button" href="resume.pdf" target="_blank">
-Download Resume
-</a>
+<a class="button" id="resumeBtn" href="resume_en.pdf" target="_blank">Download Resume</a>
 
-<!-- PC PROJECTS -->
-
-<h2>PC Projects</h2>
-
+<!-- PC Projects -->
+<h2 id="pcTitle">PC Projects</h2>
 <div class="projects">
 
 <div class="project-card">
-
 <h3>Shooting Game</h3>
-
-<video class="video-pc" controls>
+<video class="video-pc" controls muted loop>
 <source src="shooting.mp4" type="video/mp4">
 </video>
-
-<p>
-First-person shooter prototype built in Unity.
-Includes weapon system, enemy AI, shooting mechanics
-and player movement controller.
-</p>
-
+<p id="shootingDesc">First-person shooter prototype built in Unity. Includes weapon system, enemy AI, shooting mechanics, and player movement controller.</p>
+<a class="button github" href="https://github.com/IllyaSubotin/ShootingGame" target="_blank">GitHub</a>
 </div>
-
 
 <div class="project-card">
-
 <h3>Drift Game</h3>
-
-<video class="video-pc" controls>
+<video class="video-pc" controls muted loop>
 <source src="drift.mp4" type="video/mp4">
 </video>
-
-<p>
-Multiplayer drift simulator using Photon.
-Custom vehicle physics with Wheel Colliders,
-car tuning and multiplayer synchronization.
-</p>
-
+<p id="driftDesc">Multiplayer drift simulator using Photon. Custom vehicle physics with Wheel Colliders, car tuning and multiplayer synchronization.</p>
+<a class="button github" href="https://github.com/IllyaSubotin/DriftGame" target="_blank">GitHub</a>
 </div>
 
 </div>
 
-<!-- MOBILE PROJECTS -->
-
-<h2>Mobile Projects</h2>
-
+<!-- Mobile Projects -->
+<h2 id="mobileTitle">Mobile Projects</h2>
 <div class="projects">
 
 <div class="project-card">
-
 <h3>Spiral Jumper</h3>
-
-<video class="video-mobile" controls>
+<video class="video-mobile" controls muted loop>
 <source src="spiral.mp4" type="video/mp4">
 </video>
-
-<p>
-Hyper-casual mobile arcade game inspired by spiral tower mechanics.
-Player jumps through rotating platforms while avoiding obstacles.
-</p>
-
+<p id="spiralDesc">Hyper-casual mobile arcade game inspired by spiral tower mechanics. Player jumps through rotating platforms while avoiding obstacles.</p>
+<a class="button github" href="https://github.com/IllyaSubotin/JumperGame" target="_blank">GitHub</a>
 </div>
-
 
 <div class="project-card">
-
 <h3>Math Runner</h3>
-
-<video class="video-mobile" controls>
+<video class="video-mobile" controls muted loop>
 <source src="mathrunner.mp4" type="video/mp4">
 </video>
-
-<p>
-Educational mobile runner game where the player solves
-math problems while moving through levels.
-</p>
-
+<p id="mathDesc">Educational mobile runner game where the player solves math problems while moving through levels.</p>
+<a class="button github" href="https://github.com/IllyaSubotin/RunningGame" target="_blank">GitHub</a>
 </div>
 
 </div>
 
-<!-- CONTACTS -->
-
+<!-- Contacts -->
 <div class="contacts">
-
-<h2>Contacts</h2>
-
-<div class="contact-item">
-Email: subotin.illya.work@gmail.com
+<h2 id="contactsTitle">Contacts</h2>
+<div class="contact-item" id="email">Email: illya@example.com</div>
+<div class="contact-item" id="github">GitHub: github.com/IllyaSubotin</div>
+<div class="contact-item" id="linkedin">LinkedIn: linkedin.com</div>
 </div>
 
-<div class="contact-item">
-GitHub: github.com/IllyaSubotin
-</div>
+<!-- Hover video autoplay -->
+<script>
+document.querySelectorAll("video").forEach(video => {
+    video.addEventListener("mouseenter",()=>video.play());
+    video.addEventListener("mouseleave",()=>{
+        video.pause();
+        video.currentTime=0;
+    });
+});
+</script>
 
-</div>
+<!-- Language toggle -->
+<script>
+let currentLang = localStorage.getItem("lang") || "en";
+
+function applyLanguage(lang){
+    if(lang==="ua"){
+        document.getElementById("role").innerText="Unity Розробник";
+        document.getElementById("resumeBtn").innerText="Завантажити резюме";
+        document.getElementById("resumeBtn").href="resume_ua.pdf";
+        document.getElementById("pcTitle").innerText="Проекти для ПК";
+        document.getElementById("mobileTitle").innerText="Мобільні проекти";
+        document.getElementById("contactsTitle").innerText="Контакти";
+
+        document.getElementById("shootingDesc").innerText="Прототип FPS від першої особи. Містить систему зброї, AI ворогів, стріляльні механіки та контролер персонажа.";
+        document.getElementById("driftDesc").innerText="Мультиплеєрний дріфт-симулятор з Photon. Фізика автомобіля, дрифтові механіки та синхронізація гравців.";
+        document.getElementById("spiralDesc").innerText="Мобільна аркадна гра. Гравець стрибає по обертових платформах, уникаючи перешкод.";
+        document.getElementById("mathDesc").innerText="Освітній раннер для мобільних. Гравець вирішує математичні задачі під час руху рівнями.";
+
+    } else {
+        document.getElementById("role").innerText="Unity Developer";
+        document.getElementById("resumeBtn").innerText="Download Resume";
+        document.getElementById("resumeBtn").href="resume_en.pdf";
+        document.getElementById("pcTitle").innerText="PC Projects";
+        document.getElementById("mobileTitle").innerText="Mobile Projects";
+        document.getElementById("contactsTitle").innerText="Contacts";
+
+        document.getElementById("shootingDesc").innerText="First-person shooter prototype built in Unity. Includes weapon system, enemy AI, shooting mechanics, and player movement controller.";
+        document.getElementById("driftDesc").innerText="Multiplayer drift simulator using Photon. Custom vehicle physics with Wheel Colliders, car tuning and multiplayer synchronization.";
+        document.getElementById("spiralDesc").innerText="Hyper-casual mobile arcade game inspired by spiral tower mechanics. Player jumps through rotating platforms while avoiding obstacles.";
+        document.getElementById("mathDesc").innerText="Educational mobile runner game where the player solves math problems while moving through levels.";
+    }
+    localStorage.setItem("lang",lang);
+    document.documentElement.lang=lang;
+    document.querySelector(".lang-switch").innerText = lang==="en"?"UA":"EN";
+}
+
+function toggleLanguage(){
+    currentLang = currentLang==="en"?"ua":"en";
+    applyLanguage(currentLang);
+}
+
+applyLanguage(currentLang);
+</script>
 
 </body>
 </html>
