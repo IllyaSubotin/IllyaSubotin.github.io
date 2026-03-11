@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Subotin Illya | Portfolio</title>
+<title>Illya Subotin | Unity Developer</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -12,93 +12,92 @@ body{
 background: linear-gradient(180deg,#0d1117,#111827);
 color:#e6edf3;
 font-family:'Inter',sans-serif;
-max-width:1000px;
+max-width:1100px;
 margin:auto;
 padding:40px 20px;
 text-align:center;
-position:relative;
 }
 
 h1{
-font-size:42px;
-font-weight:700;
+font-size:46px;
 margin-bottom:5px;
 }
 
+h2{
+margin-top:70px;
+margin-bottom:30px;
+font-size:28px;
+}
+
 .role{
-font-size:18px;
-font-weight:300;
-margin-bottom:20px;
 color:#8b949e;
-}
-
-p{
-line-height:1.6;
-font-size:16px;
-color:#c9d1d9;
-}
-
-.lang-switch{
-position:absolute;
-top:30px;
-right:20px;
-background:#1f6feb;
-border:none;
-color:white;
-padding:8px 16px;
-border-radius:20px;
-cursor:pointer;
-font-weight:600;
-}
-
-.lang-switch:hover{
-background:#388bfd;
+margin-bottom:25px;
 }
 
 .button{
 display:inline-block;
-padding:10px 18px;
-margin-top:15px;
-margin-right:10px;
+padding:12px 22px;
 background:#238636;
 color:white;
 text-decoration:none;
 border-radius:25px;
 font-weight:600;
+margin-top:10px;
 transition:0.2s;
 }
 
-.button.github{
-background:#1f6feb;
-}
-
 .button:hover{
-transform:translateY(-2px);
+transform:translateY(-3px);
 }
 
-.projects-grid{
-margin-top:70px;
+.projects{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:50px;
+gap:40px;
 }
 
-.project-card h2{
-margin-bottom:10px;
+.project-card{
+background:#161b22;
+padding:20px;
+border-radius:16px;
+transition:0.3s;
+}
+
+.project-card:hover{
+transform:translateY(-8px);
+box-shadow:0 15px 40px rgba(0,0,0,0.4);
 }
 
 video{
-    width: 100%;            
-    max-width: 480px;       
-    height: auto;           
-    border-radius: 16px;
-    margin-top: 10px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+width:100%;
+aspect-ratio:16/9;
+object-fit:cover;
+border-radius:12px;
+margin-bottom:15px;
 }
 
+p{
+color:#c9d1d9;
+font-size:15px;
+line-height:1.5;
+}
 
-.description{
-margin-top:15px;
+.contacts{
+margin-top:90px;
+padding-top:30px;
+border-top:1px solid #30363d;
+}
+
+.contact-item{
+margin:10px 0;
+}
+
+@media(max-width:800px){
+
+.projects{
+grid-template-columns:1fr;
+}
+
 }
 
 </style>
@@ -106,134 +105,114 @@ margin-top:15px;
 
 <body>
 
-<button class="lang-switch" onclick="toggleLanguage()">UA</button>
+<!-- HERO -->
 
-<h1>Subotin Illya</h1>
-<p class="role" id="role">Unity Developer</p>
+<h1>Illya Subotin</h1>
+<p class="role">Unity Developer</p>
 
-<a class="button" href="resume.pdf" target="_blank" id="resumeBtn">
+<a class="button" href="resume.pdf" target="_blank">
 Download Resume
 </a>
 
-<div class="projects-grid">
+<!-- PC PROJECTS -->
 
-<!-- Project 1 -->
+<h2>PC Projects</h2>
+
+<div class="projects">
+
 <div class="project-card">
 
-<h2>Spiral Jumper</h2>
+<h3>Shooting Game</h3>
 
-<video controls width="320">
-  <source src="spiral.mp4" type="video/mp4">
-  Your browser does not support the video tag.
+<video controls>
+<source src="shooting.mp4" type="video/mp4">
 </video>
 
-<p class="description" id="spiralDesc">
-Hyper-casual arcade game inspired by spiral tower mechanics.
-Player jumps through rotating platforms while avoiding obstacles.
-Built with smooth physics movement and optimized gameplay loop.
+<p>
+First-person shooter prototype built in Unity.
+Includes weapon system, enemy AI, shooting mechanics
+and player movement controller.
 </p>
-
-<a class="button github"
-href="https://github.com/IllyaSubotin/JumperGame">
-GitHub
-</a>
 
 </div>
 
-<!-- Project 2 -->
+
 <div class="project-card">
 
-<h2>DriftGame</h2>
+<h3>Drift Game</h3>
 
 <video controls>
 <source src="drift.mp4" type="video/mp4">
 </video>
 
-<p class="description" id="driftDesc">
-Multiplayer drift simulator built with Photon (2–4 players).
-Custom vehicle controller using Wheel Colliders,
-synchronized multiplayer system, UI with State Machine architecture,
-dependency injection via Zenject and car customization system.
+<p>
+Multiplayer drift simulator using Photon.
+Custom vehicle physics with Wheel Colliders,
+car tuning and multiplayer synchronization.
 </p>
 
-<a class="button github"
-href="https://github.com/IllyaSubotin/DriftGame">
-GitHub
-</a>
+</div>
 
 </div>
 
-<!-- Project 3 -->
+<!-- MOBILE PROJECTS -->
+
+<h2>Mobile Projects</h2>
+
+<div class="projects">
+
 <div class="project-card">
 
-<h2>Prototype Arena</h2>
+<h3>Spiral Jumper</h3>
 
 <video controls>
-<source src="project3.mp4" type="video/mp4">
+<source src="spiral.mp4" type="video/mp4">
 </video>
+
+<p>
+Hyper-casual mobile arcade game inspired by spiral tower mechanics.
+Player jumps through rotating platforms while avoiding obstacles.
+</p>
 
 </div>
 
-<!-- Project 4 -->
+
 <div class="project-card">
 
-<h2>Physics Sandbox</h2>
+<h3>Math Runner</h3>
 
 <video controls>
-<source src="project4.mp4" type="video/mp4">
+<source src="mathrunner.mp4" type="video/mp4">
 </video>
 
-</div>
+<p>
+Educational mobile runner game where the player solves
+math problems while moving through levels.
+</p>
 
 </div>
 
-<script>
+</div>
 
-let currentLang = localStorage.getItem("lang") || "en";
+<!-- CONTACTS -->
 
-function applyLanguage(lang){
+<div class="contacts">
 
-if(lang==="ua"){
+<h2>Contacts</h2>
 
-document.getElementById("role").innerText="Unity Розробник";
-document.getElementById("resumeBtn").innerText="Завантажити резюме";
+<div class="contact-item">
+Email: illya@example.com
+</div>
 
-document.getElementById("spiralDesc").innerText=
-"Аркадна гіперказуальна гра, натхненна механікою спіральної вежі. Гравець стрибає через обертові платформи, уникаючи перешкод. Реалізовано плавну фізику руху та оптимізований ігровий цикл.";
+<div class="contact-item">
+GitHub: github.com/IllyaSubotin
+</div>
 
-document.getElementById("driftDesc").innerText=
-"Мультиплеєрний симулятор дрифту з використанням Photon (2–4 гравці). Власна система керування автомобілем на базі Wheel Collider, синхронізація гравців, UI на основі State Machine, dependency injection через Zenject та система кастомізації автомобіля.";
+<div class="contact-item">
+LinkedIn: linkedin.com
+</div>
 
-document.querySelector(".lang-switch").innerText="EN";
-
-}else{
-
-document.getElementById("role").innerText="Unity Developer";
-document.getElementById("resumeBtn").innerText="Download Resume";
-
-document.getElementById("spiralDesc").innerText=
-"Hyper-casual arcade game inspired by spiral tower mechanics. Player jumps through rotating platforms while avoiding obstacles. Built with smooth physics movement and optimized gameplay loop.";
-
-document.getElementById("driftDesc").innerText=
-"Multiplayer drift simulator built with Photon (2–4 players). Custom vehicle controller using Wheel Colliders, synchronized multiplayer system, UI with State Machine architecture, dependency injection via Zenject and car customization system.";
-
-document.querySelector(".lang-switch").innerText="UA";
-
-}
-
-localStorage.setItem("lang",lang);
-document.documentElement.lang=lang;
-
-}
-
-function toggleLanguage(){
-currentLang=currentLang==="en"?"ua":"en";
-applyLanguage(currentLang);
-}
-
-applyLanguage(currentLang);
-
-</script>
+</div>
 
 </body>
 </html>
